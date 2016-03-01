@@ -4,7 +4,7 @@
 #include "../CommandBase.h"
 #include "WPILib.h"
 
-class WheelsMoveCommand: public CommandBase
+class WheelsMoveCommand: public Command
 {
 public:
 	WheelsMoveCommand();

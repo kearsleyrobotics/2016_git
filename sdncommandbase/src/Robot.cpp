@@ -27,8 +27,8 @@ void Robot::RobotInit()
 	rollers = new RollerWheels();
 	LimitSwitch1 = new DIO();
 	LimitSwitch1->SetPort(0, "Limit Switch #1");
-	limitswitch = new LimitSwithcheshannah();
-	wheelsmovecommand = new WheelsMoveCommand();
+	//limitswitch = new LimitSwithcheshannah();
+	//wheelsmovecommand = new WheelsMoveCommand();
 }
 
 /**

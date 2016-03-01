@@ -9,7 +9,7 @@ ArmSystemhannah::ArmSystemhannah():Subsystem("ArmSystemhannah")
 	up_down_1 = new Victor(4);
     up_down_2 = new Victor(5);
 	drive_speed = 0;
-	Joystick *armjoystick = Robot::oi->GetArmJoystick();
+	armjoystick = Robot::oi->GetArmJoystick();
 	rollerturbo = new JoystickButton(armjoystick,8);
 
 }
@@ -18,11 +18,11 @@ void ArmSystemhannah::MoveY(float drive_speed)
 {
 	float y;
 	y = armjoystick->GetY();
-    if(Robot::LimitSwitch1->IsOn()&&(y<0))
+    if(!Robot::LimitSwitch1->IsOn()&&(y>0))
 	{
     	y = 0;
 	}
-	else if((rollerturbo->Get()==1)&&(y>0))
+	else if((rollerturbo->Get()==1)&&(y<0))
 	{
 		y *= 1;
 	}

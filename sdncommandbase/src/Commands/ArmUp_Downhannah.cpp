@@ -2,12 +2,11 @@
 #include "Robot.h"
 
 //ArmUp_Downhannah::ArmUp_Downhannah() : Command("ArmUp_Downhannah")
-ArmUp_Downhannah::ArmUp_Downhannah()
+ArmUp_Downhannah::ArmUp_Downhannah() : Command("ArmUp_DownHannah")
 {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(chassis);
 	Requires(Robot::armsystemhannah);
-	drive_speed = .5;
 }
 
 // Called just before this Command runs the first time
@@ -18,7 +17,7 @@ ArmUp_Downhannah::ArmUp_Downhannah(float speed)
 }
 void ArmUp_Downhannah::Initialize()
 {
-
+	drive_speed = .5;
 }
 
 // Called repeatedly when this Command is scheduled to run

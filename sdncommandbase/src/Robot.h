@@ -21,8 +21,8 @@ public:
 private:
 	//Command *arm_up_down;
 	//Command *wheels_move_command;
-	Command *limitswitch;
-	Command *wheelsmovecommand;
+	//Command *limitswitch;
+	//Command *wheelsmovecommand;
 
 	void RobotInit();
 	void AutonomousInit();

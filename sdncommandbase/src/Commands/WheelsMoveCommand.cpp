@@ -1,10 +1,11 @@
 #include "WheelsMoveCommand.h"
 #include "Robot.h"
 
-WheelsMoveCommand::WheelsMoveCommand()
+WheelsMoveCommand::WheelsMoveCommand() : Command("WheelsMoveCommand")
 {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(chassis);
+	Requires(Robot::rollers);
 }
 
 WheelsMoveCommand::WheelsMoveCommand(float speed)

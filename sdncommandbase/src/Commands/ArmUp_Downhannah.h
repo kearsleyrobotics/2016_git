@@ -4,7 +4,7 @@
 #include "../CommandBase.h"
 #include "WPILib.h"
 
-class ArmUp_Downhannah: public CommandBase
+class ArmUp_Downhannah: public Command
 {
 private:
 	float drive_speed;

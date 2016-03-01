@@ -7,6 +7,7 @@
 RollerWheels::RollerWheels():Subsystem("wheel movement")
 {
 	rollerMotor = new Victor(6);
+	speed = 0;
 }
 
 void RollerWheels::SetSpeed(float speed_in)
@@ -25,7 +26,7 @@ void RollerWheels::InitDefaultCommand()
 	//SetDefaultCommand(new MySpecialCommand());
 	//SetDefaultCommand(new WheelsMoveInCommand());
 	//SetDefaultCommand(new WheelsMoveOutCommand());
-	SetDefaultCommand(new WheelsMoveCommand());
+	SetDefaultCommand(new WheelsMoveCommand);
 
 }
 
