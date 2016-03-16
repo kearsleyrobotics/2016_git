@@ -11,6 +11,10 @@
 #include "Commands/WheelsMoveInCommand.h"
 #include "Commands/WheelsMoveOutCommand.h"
 
+#include "Commands/AutonDoNothing.h"
+#include "Commands/AutonDriveForward.h"
+#include "Commands/AutonDriveForwardThree.h"
+
 
 DriveTrainhannah* Robot::drivetrain = NULL;
 OI* Robot::oi = NULL;
@@ -26,9 +30,21 @@ void Robot::RobotInit()
 	//arm_up_down = new ArmUp_Downhannah();
 	rollers = new RollerWheels();
 	LimitSwitch1 = new DIO();
-	LimitSwitch1->SetPort(0, "Limit Switch #1");
+	LimitSwitch1->SetPort(0, "Limit Switch #0");
+	autonomousCommand = new AutonDoNothing();
 	//limitswitch = new LimitSwithcheshannah();
 	//wheelsmovecommand = new WheelsMoveCommand();
+	chooser = new SendableChooser();
+	chooser->AddDefault("Do Nothing", new AutonDoNothing());
+	chooser->AddObject("Drive Only 2 sec(two)", new AutonDriveForward());
+	chooser->AddObject("Drive Only 3 sec (three)", new AutonDriveForwardThree());
+	//chooser->AddObject("Drive Backward Over Step", new AutonLiftAndDriveBackwardStep());
+	//chooser->AddObject("Drive Only", new Autonomous());
+	SmartDashboard::PutData("Auton Modes:", chooser);
+
+	//CameraServer::GetInstance()->SetQuality(50);
+			//the camera name (ex "cam0") can be found through the roborio web interface
+	//CameraServer::GetInstance()->StartAutomaticCapture("cam0");
 }
 
 /**
@@ -55,7 +71,8 @@ void Robot::AutonomousInit()
 	} else {
 		autonomousCommand.reset(new ExampleCommand());
 	} */
-	//autonomousCommand->Start();
+	autonomousCommand = (Command *) chooser->GetSelected();
+	autonomousCommand->Start();
 
 }
 
@@ -70,7 +87,7 @@ void Robot::TeleopInit()
 	// teleop starts running. If you want the autonomous to
 	// continue until interrupted by another command, remove
 	// this line or comment it out.
-	//autonomousCommand->Cancel();
+	autonomousCommand->Cancel();
 
 }
 

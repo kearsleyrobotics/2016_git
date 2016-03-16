@@ -19,6 +19,8 @@ public:
 	static RollerWheels *rollers;
 	static DIO *LimitSwitch1;
 private:
+	Command *autonomousCommand;
+	SendableChooser *chooser;
 	//Command *arm_up_down;
 	//Command *wheels_move_command;
 	//Command *limitswitch;
