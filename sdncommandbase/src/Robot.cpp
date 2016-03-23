@@ -14,6 +14,7 @@
 #include "Commands/AutonDoNothing.h"
 #include "Commands/AutonDriveForward.h"
 #include "Commands/AutonDriveForwardThree.h"
+#include "Commands/AutonDriveForwardDriveBackward.h"
 
 
 DriveTrainhannah* Robot::drivetrain = NULL;
@@ -38,20 +39,15 @@ void Robot::RobotInit()
 	chooser->AddDefault("Do Nothing", new AutonDoNothing());
 	chooser->AddObject("Drive Only 2 sec(two)", new AutonDriveForward());
 	chooser->AddObject("Drive Only 3 sec (three)", new AutonDriveForwardThree());
-	//chooser->AddObject("Drive Backward Over Step", new AutonLiftAndDriveBackwardStep());
+	chooser->AddObject("Drive Forward 2 spit then Backward", new AutonDriveForwardDriveBackward());
 	//chooser->AddObject("Drive Only", new Autonomous());
 	SmartDashboard::PutData("Auton Modes:", chooser);
-
-	//CameraServer::GetInstance()->SetQuality(50);
+	SmartDashboard::PutData("test", Scheduler::GetInstance());
+	CameraServer::GetInstance()->SetQuality(50);
 			//the camera name (ex "cam0") can be found through the roborio web interface
-	//CameraServer::GetInstance()->StartAutomaticCapture("cam0");
+	CameraServer::GetInstance()->StartAutomaticCapture("cam0");
 }
 
-/**
- * This function is called once each time the robot enters Disabled mode.
- * You can use it to reset any subsystem information you want to clear when
- * the robot is disabled.
- */
 
 
 /**

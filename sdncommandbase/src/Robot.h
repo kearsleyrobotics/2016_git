@@ -1,5 +1,4 @@
-
-//#ifndef MY_ROBOT_H_
+#ifndef MY_ROBOT_H_
 #define MY_ROBOT_H_
 
 #include "WPILib.h"
@@ -34,5 +33,5 @@ private:
 	void TestPeriodic();
 };
 
-//#endif /* ROBOT_H_ */
+#endif /* ROBOT_H_ */
 

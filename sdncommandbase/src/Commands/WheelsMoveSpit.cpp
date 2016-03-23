@@ -1,52 +1,49 @@
-/*
- * DriveForward.cpp
- *
- *  Created on: Mar 2, 2016
- *      Author: frc5150
- */
-#include "DriveForward.h"
+#include "WheelsMoveSpit.h"
 #include "Robot.h"
 
-DriveForward::DriveForward() : Command("DriveForward")
+WheelsMoveSpit::WheelsMoveSpit() : Command("WheelsMoveSpit")
 {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(chassis);
-	Requires(Robot::drivetrain);
+	Requires(Robot::rollers);
+}
+
+WheelsMoveSpit::WheelsMoveSpit(float speed)
+{
+	Robot::rollers->SetSpeed(speed);
 }
 
 // Called just before this Command runs the first time
-void DriveForward::Initialize()
+void WheelsMoveSpit::Initialize()
 {
 	// set timeout
-	SetTimeout(2.25);
+	SetTimeout(0.25);
+	Robot::rollers->SetSpeed(-0.75);
 }
 
 // Called repeatedly when this Command is scheduled to run
-void DriveForward::Execute()
+void WheelsMoveSpit::Execute()
 {
-	//motor sides             left,right
-	Robot::drivetrain->Drive(-0.74,-0.75);
+	Robot::rollers->MoveNow();
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool DriveForward::IsFinished()
+bool WheelsMoveSpit::IsFinished()
 {
 	return (IsTimedOut());
+	//return false;
 }
 
 // Called once after isFinished returns true
-void DriveForward::End()
+void WheelsMoveSpit::End()
 {
-	Robot::drivetrain->Drive(0.0,0.0);
+	Robot::rollers->SetSpeed(0);
+	Robot::rollers->MoveNow();
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void DriveForward::Interrupted()
+void WheelsMoveSpit::Interrupted()
 {
 	End();
 }
-
-
-
-

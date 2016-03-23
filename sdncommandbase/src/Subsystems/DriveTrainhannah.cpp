@@ -12,8 +12,10 @@ DriveTrainhannah::DriveTrainhannah() :
   back_right_motor = new Victor(1);
 
   drive = new RobotDrive(front_left_motor,back_left_motor,front_right_motor,back_right_motor);
-  //drive->SetInvertedMotor(RobotDrive::kFrontLeftMotor, true); //invert the left side motors
-  //drive->SetInvertedMotor(RobotDrive::kRearLeftMotor, true); // you may need to change or remove this to match your robot
+  drive->SetInvertedMotor(RobotDrive::kFrontLeftMotor, true); //invert the left side motors
+  drive->SetInvertedMotor(RobotDrive::kRearLeftMotor, true); // you may need to change or remove this to match your robot
+  drive->SetInvertedMotor(RobotDrive::kFrontRightMotor, true); //invert the left side motors
+  drive->SetInvertedMotor(RobotDrive::kRearRightMotor, true); // you may need to change or remove this to match your robot
 
   drive->SetSafetyEnabled(false);
 }
@@ -32,7 +34,7 @@ void DriveTrainhannah::Drive(double leftYIn, double rightYIn)
 
 void DriveTrainhannah::Drive(Joystick* TankDrivejoystick0, Joystick* TankDrivejoystick1)
 {
-	Drive(TankDrivejoystick0->GetY(),TankDrivejoystick1->GetY());
+	Drive(TankDrivejoystick1->GetY(),TankDrivejoystick0->GetY());
 }
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
