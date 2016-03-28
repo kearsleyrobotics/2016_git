@@ -25,7 +25,7 @@ void DriveForwardThree::Initialize()
 void DriveForwardThree::Execute()
 {
 	//motor sides             left,right
-	Robot::drivetrain->Drive(-0.74,-0.75);
+	Robot::drivetrain->Drive(-0.745,-0.75);
 }
 
 // Make this return true when this Command no longer needs to run execute()

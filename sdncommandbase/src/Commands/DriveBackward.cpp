@@ -25,7 +25,7 @@ void DriveBackward::Initialize()
 void DriveBackward::Execute()
 {
 	//motor sides            left,right
-	Robot::drivetrain->Drive(0.75,0.74);
+	Robot::drivetrain->Drive(0.75,0.745);
 }
 
 // Make this return true when this Command no longer needs to run execute()
