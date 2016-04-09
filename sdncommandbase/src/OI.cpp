@@ -3,6 +3,8 @@
 #include "Commands/WheelsMoveCommand.h"
 #include "Commands/WheelsMoveInCommand.h"
 #include "Commands/WheelsMoveOutCommand.h"
+#include "Commands/ScaleMoveUpCommand.h"
+#include "Commands/ScaleMoveDownCommand.h"
 #include "Robot.h"
 
 
@@ -15,6 +17,10 @@ OI::OI()
 	roll_out = new JoystickButton(armjoystick, 6);
 	roll_in->WhileHeld(new WheelsMoveInCommand);
 	roll_out->WhileHeld(new WheelsMoveOutCommand);
+	scale_up = new JoystickButton(TankDrivejoystick0, 5);
+	scale_down = new JoystickButton(TankDrivejoystick0, 3);
+	scale_up->WhileHeld(new ScaleMoveUpCommand);
+	scale_down->WhileHeld(new ScaleMoveDownCommand);
 	// Process operator interface input here.
 	//JoystickButton* half_speed = new JoystickButton(armjoystick, 2);
 	//JoystickButton* full_speed = new JoystickButton(armjoystick, 3);
@@ -45,6 +51,16 @@ Button *OI::GetButtonROllOut()
 	return roll_out;
 }
 
+Button *OI::GetButtonScaleUp()
+{
+	return scale_up;
+}
+
+Button *OI::GetButtonScaleDown()
+{
+	return scale_down;
+}
+
 bool OI::GetRollInPressed()
 {
 	return roll_in->Get();
@@ -53,6 +69,16 @@ bool OI::GetRollInPressed()
 bool OI::GetRollOutPressed()
 {
 	return roll_out->Get();
+}
+
+bool OI::GetScaleUpPressed()
+{
+	return scale_up->Get();
+}
+
+bool OI::GetScaleDownPressed()
+{
+	return scale_down->Get();
 }
 
 

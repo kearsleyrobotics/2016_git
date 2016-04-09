@@ -17,6 +17,13 @@ ArmSystemhannah::ArmSystemhannah():Subsystem("ArmSystemhannah")
 void ArmSystemhannah::MoveY(float drive_speed)
 {
 	float y;
+	//if(isAutonomous())
+	if(drive_speed < -0.5)
+	{
+		y = drive_speed;
+	}
+	else
+	{
 	y = armjoystick->GetY();
     if(!Robot::LimitSwitch1->IsOn()&&(y>0))
 	{
@@ -37,6 +44,7 @@ void ArmSystemhannah::MoveY(float drive_speed)
 	else
 	{
 		y *= drive_speed;
+	}
 	}
 	up_down_1->Set(y);
 	up_down_2->Set(y);

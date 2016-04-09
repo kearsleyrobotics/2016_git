@@ -9,6 +9,7 @@
 #include "Subsystems/ArmSystemhannah.h"
 #include "Subsystems/RollerWheels.h"
 #include "Subsystems/DIO.h"
+#include "Subsystems/ScaleSystem.h"
 
 class Robot: public IterativeRobot{
 public:
@@ -17,6 +18,7 @@ public:
 	static ArmSystemhannah* armsystemhannah;
 	static RollerWheels *rollers;
 	static DIO *LimitSwitch1;
+	static ScaleSystem *scale;
 private:
 	Command *autonomousCommand;
 	SendableChooser *chooser;

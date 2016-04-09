@@ -11,6 +11,8 @@ private:
 	Joystick* armjoystick;
 	Button* roll_in;
 	Button* roll_out;
+	Button* scale_up;
+	Button* scale_down;
 
 public:
 	OI();
@@ -19,8 +21,12 @@ public:
 	Joystick* GetArmJoystick();
 	Button *GetButtonRollIn();
 	Button *GetButtonROllOut();
+	Button *GetButtonScaleUp();
+	Button *GetButtonScaleDown();
 	bool GetRollInPressed();
 	bool GetRollOutPressed();
+	bool GetScaleUpPressed();
+	bool GetScaleDownPressed();
 };
 
 #endif

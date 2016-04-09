@@ -10,11 +10,17 @@
 #include "Commands/LimitSwithcheshannah.h"
 #include "Commands/WheelsMoveInCommand.h"
 #include "Commands/WheelsMoveOutCommand.h"
+#include "Commands/ScaleMoveCommand.h"
+#include "Commands/ScaleMoveUpCommand.h"
+#include "Commands/ScaleMoveDownCommand.h"
 
 #include "Commands/AutonDoNothing.h"
 #include "Commands/AutonDriveForward.h"
 #include "Commands/AutonDriveForwardThree.h"
+#include "Commands/AutonDriveForwardReach.h"
 #include "Commands/AutonDriveForwardDriveBackward.h"
+#include "Commands/AutonLowBLowGShoot.h"
+#include "Commands/AutonCheval.h"
 
 
 DriveTrainhannah* Robot::drivetrain = NULL;
@@ -22,6 +28,7 @@ OI* Robot::oi = NULL;
 ArmSystemhannah* Robot::armsystemhannah = NULL;
 RollerWheels* Robot::rollers = NULL;
 DIO *Robot::LimitSwitch1 = NULL;
+ScaleSystem* Robot::scale = NULL;
 
 void Robot::RobotInit()
 {
@@ -32,15 +39,18 @@ void Robot::RobotInit()
 	rollers = new RollerWheels();
 	LimitSwitch1 = new DIO();
 	LimitSwitch1->SetPort(0, "Limit Switch #0");
+	scale = new ScaleSystem();
 	autonomousCommand = new AutonDoNothing();
 	//limitswitch = new LimitSwithcheshannah();
 	//wheelsmovecommand = new WheelsMoveCommand();
 	chooser = new SendableChooser();
-	chooser->AddDefault("Do Nothing", new AutonDoNothing());
-	chooser->AddObject("Drive Only 2 sec(two)", new AutonDriveForward());
-	chooser->AddObject("Drive Only 3 sec (three)", new AutonDriveForwardThree());
-	chooser->AddObject("Drive Forward 2 spit then Backward", new AutonDriveForwardDriveBackward());
-	//chooser->AddObject("Drive Only", new Autonomous());
+	chooser->AddDefault("aDo Nothing", new AutonDoNothing());
+	chooser->AddObject("bDrive Only 2 sec(two)", new AutonDriveForward());
+	chooser->AddObject("cDrive Only 3 sec (three)", new AutonDriveForwardThree());
+	chooser->AddObject("dDrive Forward 2 spit then Backward", new AutonDriveForwardDriveBackward());
+	chooser->AddObject("eLow Bar Low Goal shoot", new AutonLowBLowGShoot());
+	chooser->AddObject("fDrive Reach", new AutonDriveForwardReach());
+	chooser->AddObject("gCheval", new AutonCheval());
 	SmartDashboard::PutData("Auton Modes:", chooser);
 	SmartDashboard::PutData("test", Scheduler::GetInstance());
 	CameraServer::GetInstance()->SetQuality(50);
