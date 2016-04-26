@@ -1,14 +1,13 @@
-/*#ifndef ScaleMoveCommand_H
-#define ScaleMoveCommand_H
+#ifndef DriveWait_LowG_H
+#define DriveWait_LowG_H
 
 #include "../CommandBase.h"
 #include "WPILib.h"
 
-class ScaleMoveCommand: public Command
+class DriveWait_LowG: public Command
 {
 public:
-	ScaleMoveCommand();
-	ScaleMoveCommand(float speed);
+	DriveWait_LowG();
 	void Initialize();
 	void Execute();
 	bool IsFinished();
@@ -17,4 +16,3 @@ public:
 };
 
 #endif
-*/

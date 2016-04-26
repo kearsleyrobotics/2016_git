@@ -1,14 +1,13 @@
-/*#ifndef ScaleMoveCommand_H
-#define ScaleMoveCommand_H
+#ifndef DriveBackwardDefense_H
+#define DriveBackwardDefense_H
 
 #include "../CommandBase.h"
 #include "WPILib.h"
 
-class ScaleMoveCommand: public Command
+class DriveBackwardDefense: public Command
 {
 public:
-	ScaleMoveCommand();
-	ScaleMoveCommand(float speed);
+	DriveBackwardDefense();
 	void Initialize();
 	void Execute();
 	bool IsFinished();
@@ -17,4 +16,3 @@ public:
 };
 
 #endif
-*/

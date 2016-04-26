@@ -4,11 +4,14 @@
  *  Created on: Mar 2, 2016
  *      Author: frc5150
  */
-#include "AutonLowBLowGShoot.h"
+#include "AutonLowBLowGShootBack.h"
 
-#include "DriveForwardThree.h"
-#include "DriveForward.h"
-#include "DriveWait.h"
+#include "DriveForwardLowB_LowG.h"
+#include "AutonLowBLowGShoot.h"
+#include "DriveForwardOntoBatter_LowB.h"
+//#include "DriveForwardThree.h"
+//#include "DriveForward.h"
+//#include "DriveWait.h"
 #include "DriveTurnRight65.h"
 #include "WheelsMoveSpit.h"
 #include "ArmLowerLowGoal.h"
@@ -33,14 +36,18 @@ AutonLowBLowGShoot::AutonLowBLowGShoot() : CommandGroup("AutonLowBLowGShoot")
 	// e.g. if Command1 requires chassis, and Command2 requires arm,
 	// a CommandGroup containing them would require both the chassis and the
 	// arm.
-	AddSequential(new DriveForwardThree());
+	//AddSequential(new DriveForwardThree());
+	//AddSequential(new DriveTurnRight65());
+	//AddSequential(new DriveForward());
+	//AddSequential(new ArmLowerLowGoal());
+	//AddParallel(new WheelsMoveSpit());
+	//AddSequential(new ArmLowerLowGoal());
+	AddSequential(new DriveForwardLowB_LowG());
 	AddSequential(new DriveTurnRight65());
-	AddSequential(new DriveForward());
+	AddSequential(new DriveForwardOntoBatter_LowB());
 	AddSequential(new ArmLowerLowGoal());
 	AddParallel(new WheelsMoveSpit());
 	AddSequential(new ArmLowerLowGoal());
-	//AddSequential(new DriveWait());
-	//AddSequential(new DriveBackward());
-	//AddSequential(new DriveTurnRight120());
+
 
 }

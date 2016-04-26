@@ -1,14 +1,13 @@
-/*#ifndef ScaleMoveCommand_H
-#define ScaleMoveCommand_H
+#ifndef DriveTurnLeft65_H
+#define DriveTurnLeft65_H
 
 #include "../CommandBase.h"
 #include "WPILib.h"
 
-class ScaleMoveCommand: public Command
+class DriveTurnLeft65: public Command
 {
 public:
-	ScaleMoveCommand();
-	ScaleMoveCommand(float speed);
+	DriveTurnLeft65();
 	void Initialize();
 	void Execute();
 	bool IsFinished();
@@ -17,4 +16,3 @@ public:
 };
 
 #endif
-*/

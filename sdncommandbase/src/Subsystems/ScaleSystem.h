@@ -1,4 +1,4 @@
-#ifndef ScaleSystem_H
+/*#ifndef ScaleSystem_H
 #define ScaleSystem_H
 
 #include "Commands/Subsystem.h"
@@ -19,3 +19,4 @@ public:
 };
 
 #endif
+*/

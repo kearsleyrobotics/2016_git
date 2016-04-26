@@ -18,7 +18,7 @@ DriveTurnRight65::DriveTurnRight65() : Command("DriveTurnRight65")
 void DriveTurnRight65::Initialize()
 {
 	// set timeout
-	SetTimeout(0.45);
+	SetTimeout(0.47);
 }
 
 // Called repeatedly when this Command is scheduled to run

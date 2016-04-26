@@ -8,7 +8,7 @@
 
 #include "DriveForwardReach.h"
 #include "ArmLowerLowGoal.h"
-#include "ArmRaise.h"
+//#include "ArmRaise.h"
 #include "DriveWait.h"
 
 AutonCheval::AutonCheval() : CommandGroup("AutonCheval")
@@ -36,6 +36,6 @@ AutonCheval::AutonCheval() : CommandGroup("AutonCheval")
 	AddSequential(new ArmLowerLowGoal());
 	AddSequential(new DriveWait());
 	AddSequential(new DriveForwardReach());
-	AddSequential(new ArmRaise());
+	//AddSequential(new ArmRaise());
 
 }

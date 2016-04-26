@@ -1,4 +1,4 @@
-#include "ScaleMoveDownCommand.h"
+/*#include "ScaleMoveDownCommand.h"
 #include "Robot.h"
 
 ScaleMoveDownCommand::ScaleMoveDownCommand()
@@ -43,3 +43,4 @@ void ScaleMoveDownCommand::Interrupted()
 {
 	End();
 }
+*/

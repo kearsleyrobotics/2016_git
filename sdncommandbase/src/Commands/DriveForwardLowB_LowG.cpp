@@ -1,45 +1,40 @@
-/*#include "ScaleMoveCommand.h"
+#include "DriveForwardLowB_LowG.h"
 #include "Robot.h"
 
-ScaleMoveCommand::ScaleMoveCommand() : Command("ScaleMoveCommand")
+DriveForwardLowB_LowG::DriveForwardLowB_LowG()
 {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(chassis);
-	Requires(Robot::scale);
-}
-
-ScaleMoveCommand::ScaleMoveCommand(float speed)
-{
-	Robot::scale->SetSpeed(speed);
+	Requires(Robot::drivetrain);
 }
 
 // Called just before this Command runs the first time
-void ScaleMoveCommand::Initialize()
+void DriveForwardLowB_LowG::Initialize()
 {
-	Robot::scale->SetSpeed(0);
+	SetTimeout(3.1);
 }
 
 // Called repeatedly when this Command is scheduled to run
-void ScaleMoveCommand::Execute()
+void DriveForwardLowB_LowG::Execute()
 {
-	Robot::scale->MoveNow();
+	Robot::drivetrain->Drive(-0.745,-0.75);
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool ScaleMoveCommand::IsFinished()
+bool DriveForwardLowB_LowG::IsFinished()
 {
-	return false;
+	return (IsTimedOut());
 }
 
 // Called once after isFinished returns true
-void ScaleMoveCommand::End()
+void DriveForwardLowB_LowG::End()
 {
-
+	Robot::drivetrain->Drive(0.0,0.0);
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void ScaleMoveCommand::Interrupted()
+void DriveForwardLowB_LowG::Interrupted()
 {
-
-}*/
+	End();
+}

@@ -1,4 +1,4 @@
-#include "ScaleSystem.h"
+/*#include "ScaleSystem.h"
 #include "Commands/ScaleMoveCommand.h"
 #include "../RobotMap.h"
 //#include "Commands/WheelsMoveInCommand.h"
@@ -28,9 +28,10 @@ void ScaleSystem::InitDefaultCommand()
 	//SetDefaultCommand(new MySpecialCommand());
 	//SetDefaultCommand(new WheelsMoveInCommand());
 	//SetDefaultCommand(new WheelsMoveOutCommand());
-	SetDefaultCommand(new ScaleMoveCommand);
+	//SetDefaultCommand(new ScaleMoveCommand);
 
 }
 
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
+*/

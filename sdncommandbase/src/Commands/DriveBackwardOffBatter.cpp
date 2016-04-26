@@ -1,45 +1,40 @@
-/*#include "ScaleMoveCommand.h"
+#include "DriveBackwardOffBatter.h"
 #include "Robot.h"
 
-ScaleMoveCommand::ScaleMoveCommand() : Command("ScaleMoveCommand")
+DriveBackwardOffBatter::DriveBackwardOffBatter()
 {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(chassis);
-	Requires(Robot::scale);
-}
-
-ScaleMoveCommand::ScaleMoveCommand(float speed)
-{
-	Robot::scale->SetSpeed(speed);
+	Requires(Robot::drivetrain);
 }
 
 // Called just before this Command runs the first time
-void ScaleMoveCommand::Initialize()
+void DriveBackwardOffBatter::Initialize()
 {
-	Robot::scale->SetSpeed(0);
+	SetTimeout(1.47);
 }
 
 // Called repeatedly when this Command is scheduled to run
-void ScaleMoveCommand::Execute()
+void DriveBackwardOffBatter::Execute()
 {
-	Robot::scale->MoveNow();
+	Robot::drivetrain->Drive(0.745,0.75);
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool ScaleMoveCommand::IsFinished()
+bool DriveBackwardOffBatter::IsFinished()
 {
-	return false;
+	return (IsTimedOut());
 }
 
 // Called once after isFinished returns true
-void ScaleMoveCommand::End()
+void DriveBackwardOffBatter::End()
 {
-
+	Robot::drivetrain->Drive(0.0,0.0);
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void ScaleMoveCommand::Interrupted()
+void DriveBackwardOffBatter::Interrupted()
 {
-
-}*/
+	End();
+}

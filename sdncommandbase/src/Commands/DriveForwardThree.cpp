@@ -18,7 +18,7 @@ DriveForwardThree::DriveForwardThree() : Command("DriveForwardThree")
 void DriveForwardThree::Initialize()
 {
 	// set timeout
-	SetTimeout(3.5);
+	SetTimeout(3.25);
 }
 
 // Called repeatedly when this Command is scheduled to run

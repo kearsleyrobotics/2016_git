@@ -1,4 +1,4 @@
-#ifndef ScaleMoveDownCommand_H
+/*#ifndef ScaleMoveDownCommand_H
 #define ScaleMoveDownCommand_H
 
 #include "../CommandBase.h"
@@ -17,3 +17,4 @@ public:
 };
 
 #endif
+*/

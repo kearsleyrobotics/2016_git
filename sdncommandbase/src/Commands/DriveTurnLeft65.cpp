@@ -1,45 +1,40 @@
-/*#include "ScaleMoveCommand.h"
+#include "DriveTurnLeft65.h"
 #include "Robot.h"
 
-ScaleMoveCommand::ScaleMoveCommand() : Command("ScaleMoveCommand")
+DriveTurnLeft65::DriveTurnLeft65()
 {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(chassis);
-	Requires(Robot::scale);
-}
-
-ScaleMoveCommand::ScaleMoveCommand(float speed)
-{
-	Robot::scale->SetSpeed(speed);
+	Requires(Robot::drivetrain);
 }
 
 // Called just before this Command runs the first time
-void ScaleMoveCommand::Initialize()
+void DriveTurnLeft65::Initialize()
 {
-	Robot::scale->SetSpeed(0);
+	SetTimeout(0.36);
 }
 
 // Called repeatedly when this Command is scheduled to run
-void ScaleMoveCommand::Execute()
+void DriveTurnLeft65::Execute()
 {
-	Robot::scale->MoveNow();
+	Robot::drivetrain->Drive(0.75,-0.75);
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool ScaleMoveCommand::IsFinished()
+bool DriveTurnLeft65::IsFinished()
 {
-	return false;
+	return (IsTimedOut());
 }
 
 // Called once after isFinished returns true
-void ScaleMoveCommand::End()
+void DriveTurnLeft65::End()
 {
-
+	Robot::drivetrain->Drive(0.0,0.0);
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void ScaleMoveCommand::Interrupted()
+void DriveTurnLeft65::Interrupted()
 {
-
-}*/
+	End();
+}
